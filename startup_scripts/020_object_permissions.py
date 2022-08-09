@@ -21,6 +21,9 @@ for permission_name, permission_details in object_permissions.items():
         },
     )
 
+    if permission_details.get("constraints", 0):
+        object_permission.constraints = permission_details["constraints"]
+
     if permission_details.get("object_types", 0):
         object_types = permission_details["object_types"]
 
